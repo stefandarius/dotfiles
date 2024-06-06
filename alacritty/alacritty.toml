@@ -1,0 +1,14 @@
+import = ["~/.config/alacritty/kanagawa/kanagawa-wave.toml"]
+
+[window]
+decorations = "Buttonless"
+padding = {x = 16, y = 16}
+opacity = 0.9
+blur = false
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular"}
+size = 13
+
+[mouse]
+hide_when_typing = true

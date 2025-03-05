@@ -346,7 +346,7 @@ tmux_conf_theme_clock_style="24"
 #   - disabled
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel, xclip or wl-copy
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
@@ -417,13 +417,14 @@ tmux_conf_uninstall_plugins_on_reload=true
 # visit https://github.com/tmux-plugins for available plugins
 #set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 # for neovim
 set -g @resurrect-strategy-nvim 'session'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 set -g @plugin 'rose-pine/tmux'
-set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
+set -g @rose_pine_variant 'dawn' # Options are 'main', 'moon' or 'dawn'
 set -g @rose_pine_host 'on' # Enables hostname in the status bar
 set -g @rose_pine_date_time '%d-%m-%Y %H:%M' # It accepts the date UNIX command format (man date for info)
 set -g @rose_pine_user 'on' # Turn on the username component in the statusbar

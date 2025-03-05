@@ -8,7 +8,7 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "Kanagawa (Gogh)"
-config.color_scheme = "Gruvbox dark, hard (base16)"
+config.color_scheme = "Gruvbox light, soft (base16)"
 
 -- Or the font:
 config.font_size = 10.0

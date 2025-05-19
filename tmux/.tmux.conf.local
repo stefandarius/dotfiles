@@ -376,7 +376,26 @@ bind C-a send-prefix
 # bind c new-window -c '#{pane_current_path}' #!important
 
 # move status line to top
+set-option -g monitor-activity off
 set -g status-position top
+set -g status-justify absolute-centre
+set -g status-style 'fg=color7 bg=default'
+# set -g status-right ''
+# set -g status-right ' #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)'
+
+set -g status-right '#{user}@#{hostname}  #(basename "#{pane_current_path}") #( \
+  cd "#{pane_current_path}" 2>/dev/null && \
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 && \
+  echo "" "$(git symbolic-ref --short HEAD) " \
+)'
+
+set -g status-left '%H:%M %d-%m-%Y | #S'
+set -g status-left-style 'fg=color7'
+set -g status-right-length 0
+set -g status-left-length 100
+setw -g window-status-current-style 'fg=colour8 bg=colour6 bold'
+setw -g window-status-current-format ' #I:#W '
+setw -g window-status-style 'fg=color7'
 
 bind C-j display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
 
@@ -423,16 +442,16 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-strategy-nvim 'session'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
-set -g @plugin 'rose-pine/tmux'
-set -g @rose_pine_variant 'dawn' # Options are 'main', 'moon' or 'dawn'
-set -g @rose_pine_host 'on' # Enables hostname in the status bar
-set -g @rose_pine_date_time '%d-%m-%Y %H:%M' # It accepts the date UNIX command format (man date for info)
-set -g @rose_pine_user 'on' # Turn on the username component in the statusbar
-set -g @rose_pine_directory 'on' # Turn on the current folder component in the status bar
-set -g @rose_pine_bar_bg_disable 'on' # Disables background color, for transparent terminal emulators
-set -g @rose_pine_bar_bg_disabled_color_option 'default'
-set -g @rose_pine_show_current_program 'off' # Forces tmux to show the current running program as window name
-set -g @rose_pine_disable_active_window_menu 'on' # Disables the menu that shows the active window on the left
+# set -g @plugin 'rose-pine/tmux'
+# set -g @rose_pine_variant 'dawn' # Options are 'main', 'moon' or 'dawn'
+# set -g @rose_pine_host 'on' # Enables hostname in the status bar
+# set -g @rose_pine_date_time '%d-%m-%Y %H:%M' # It accepts the date UNIX command format (man date for info)
+# set -g @rose_pine_user 'on' # Turn on the username component in the statusbar
+# set -g @rose_pine_directory 'on' # Turn on the current folder component in the status bar
+# set -g @rose_pine_bar_bg_disable 'on' # Disables background color, for transparent terminal emulators
+# set -g @rose_pine_bar_bg_disabled_color_option 'default'
+# set -g @rose_pine_show_current_program 'off' # Forces tmux to show the current running program as window name
+# set -g @rose_pine_disable_active_window_menu 'on' # Disables the menu that shows the active window on the left
 # To update plugin for future revisions or bug fixes, do the "Prefix + U" keycombo
 # To update plugin for future revisions or bug fixes, do the "Prefix + U" keycombo
 # -- custom variables ----------------------------------------------------------

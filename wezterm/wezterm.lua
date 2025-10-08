@@ -11,7 +11,8 @@ local config = wezterm.config_builder()
 config.color_scheme = "Gruvbox dark, hard (base16)"
 
 -- Or the font:
-config.font_size = 10.0
+config.font = wezterm.font_with_fallback({ "FiraCode Nerd Font", "Apple Color Emoji" })
+config.font_size = 12.0
 
 config.window_background_opacity = 0.98
 config.enable_tab_bar = false
